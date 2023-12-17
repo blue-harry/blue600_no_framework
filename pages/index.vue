@@ -88,7 +88,7 @@
     <!-- 走马灯 -->
     <v-carousel
       cycle
-      height="80"
+      height="100"
       hide-delimiters
       show-arrows="hover"
       class="mb-2"
@@ -96,7 +96,7 @@
       <v-carousel-item v-for="(slide, i) in slides" :key="i">
         <v-sheet :color="colors[i]" height="100%">
           <div class="d-flex fill-height justify-center align-center">
-            <div class="text-h5">{{ slide }}</div>
+            <div class="text-h6">{{ slide }}</div>
           </div>
         </v-sheet>
       </v-carousel-item>

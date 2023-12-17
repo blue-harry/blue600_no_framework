@@ -4,11 +4,16 @@
     <v-toolbar flat dark prominent class="d-flex bg-white">
       <template v-slot:prepend>
         <nuxt-link to="/">
-          <img src="/logo.jpeg" style="height: 50px" />
+          <v-icon
+            icon="mdi-home"
+            size="large"
+            color="primary"
+            class="mb-1 ml-2"
+          ></v-icon>
         </nuxt-link>
       </template>
 
-      <div class="d-none d-sm-flex justify-space-around w-50 ml-12">
+      <div class="d-none d-sm-flex justify-space-around w-75 ml-12">
         <v-menu open-on-hover v-for="(item, index) in navItems" :key="index">
           <template v-slot:activator="{ props }">
             <v-btn color="primary" size="x-large" class="btn" v-bind="props">
@@ -41,39 +46,6 @@
 
       <v-spacer></v-spacer>
 
-      <!-- 联系客服 -->
-      <v-dialog open-on-hover width="360" location-strategy="connected">
-        <template v-slot:activator="{ props }">
-          <v-btn
-            variant="text"
-            color="primary"
-            size="x-large"
-            append-icon="mdi-account-outline"
-            v-bind="props"
-            class="d-none d-sm-flex"
-          >
-            联系客服
-          </v-btn>
-        </template>
-
-        <template v-slot:default="{ isActive }">
-          <v-card title="耐心解答，不拉客！不纠缠！">
-            <v-card-text> 联系电话：13823673216 </v-card-text>
-
-            <v-card-actions>
-              <v-spacer></v-spacer>
-
-              <v-btn
-                variant="outlined"
-                color="primary"
-                @click="isActive.value = false"
-                >关闭</v-btn
-              >
-            </v-card-actions>
-          </v-card></template
-        >
-      </v-dialog>
-
       <!-- 手机小屏幕下拉菜单 -->
       <v-btn
         color="primary"
@@ -82,7 +54,7 @@
         size="small"
         class="d-sm-none"
         id="mobile-activator"
-        >导航栏</v-btn
+        >menu</v-btn
       >
 
       <v-menu activator="#mobile-activator">
@@ -137,7 +109,7 @@
  */
 const navItems = [
   {
-    navTitle: "零售专卖",
+    navTitle: "games by Jason",
     navMenu: [
       {
         icon: "mdi-cart-outline",
@@ -153,47 +125,10 @@ const navItems = [
           "社区烘培店 | 烘焙连锁 | 中式烘焙 | 西式甜点 | 面包茶饮 | 烘焙餐吧",
         link: "/bakery",
       },
-      {
-        icon: "mdi-baby-bottle-outline",
-        title: "母婴用品",
-        subtitle: "母婴用品店 | 奶粉寄存",
-        link: "/baby",
-      },
-      {
-        icon: "mdi-hanger",
-        title: "服装鞋帽",
-        subtitle:
-          "时装专卖 | 仓储式门店 | 连锁服装店 | 大型服装卖场 | 自助体验店",
-        link: "/fashion",
-      },
-      {
-        icon: "mdi-pill",
-        title: "药品保健",
-        subtitle: "便民药店 | 保健品店",
-        link: "/medicine",
-      },
-      {
-        icon: "mdi-dog-side",
-        title: "宠物之家",
-        subtitle: "社区宠物店 | 宠物医院 | 宠物用品超市 | 宠物酒店 | 宠物乐园",
-        link: "/pet",
-      },
-      {
-        icon: "mdi-fruit-grapes-outline",
-        title: "生鲜果蔬",
-        subtitle: "水果连锁店 | 海鲜市场 | 蔬菜市场",
-        link: "/fresh",
-      },
-      {
-        icon: "mdi-store-outline",
-        title: "超市便利",
-        subtitle: "社区超市 | 街边便利店 | 连锁便利店",
-        link: "/store",
-      },
     ],
-  }, //"零售专卖"
+  }, //games by Jason
   {
-    navTitle: "美容保健",
+    navTitle: "games recommended",
     navMenu: [
       {
         icon: "mdi-spa-outline",
@@ -208,54 +143,11 @@ const navItems = [
           "社区单店 | 夫妻小店 | 手机&电脑预约及收银 | 简洁易用 | 费用亲民",
         link: "/spa_mini",
       },
-
-      {
-        icon: "mdi-lotion-outline",
-        title: "连锁品牌",
-        subtitle: "美业连锁机构 | 统一管理和调配 | 支持连锁门店有限业务差异化",
-        link: "/spa_chain",
-      },
-      {
-        icon: "mdi-hospital-box-outline",
-        title: "美容保健大品牌",
-        subtitle:
-          "大品牌服务机构 | 量身定制数字化方案 | 实现品牌战略和管理目标",
-        link: "/spa_big",
-      },
     ],
-  }, //"美容保健"
-  {
-    navTitle: "餐厅茶饮",
-    navMenu: [
-      {
-        icon: "mdi-silverware-variant",
-        title: "餐饮总述",
-        subtitle: "餐饮解决方案的公共特性、功能模块，建议先浏览一遍",
-        link: "/catering",
-      },
-      {
-        icon: "mdi-pasta",
-        title: "轻食快餐",
-        subtitle: "快餐轻食 | 2人和4人小桌台 | 特色菜品 | 上餐用餐快",
-        link: "/cafe",
-      },
-      {
-        icon: "mdi-coffee-outline",
-        title: "咖啡茶饮",
-        subtitle: "咖啡厅 | 茶饮休闲 | 提供简餐",
-        link: "/drink",
-      },
-      {
-        icon: "mdi-glass-wine",
-        title: "餐馆酒楼",
-        subtitle: "标准围坐式 | VIP包间 | 菜品丰富 | 用餐时间较长",
-        link: "/diner",
-      },
-    ],
-  }, //"餐厅茶饮"
+  }, //games recommended
 
   {
-    navTitle: "关于公司",
+    navTitle: "About me",
     navMenu: [
       {
         icon: "mdi-office-building",
@@ -269,12 +161,6 @@ const navItems = [
         title: "团队文化",
         subtitle: "利他双赢｜卓越才能｜物超所值",
         link: "/team",
-      },
-      {
-        icon: "mdi-account-multiple-plus-outline",
-        title: "诚聘英才",
-        subtitle: "软件销售员｜售后服务工程师｜小程序开发工程师",
-        link: "/job",
       },
     ],
   }, //"碧海公司"

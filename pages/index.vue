@@ -4,7 +4,7 @@
     <!-- 走马灯 -->
     <v-carousel
       cycle
-      height="120"
+      height="80"
       hide-delimiters
       show-arrows="hover"
       class="mb-15"
@@ -12,7 +12,7 @@
       <v-carousel-item v-for="(slide, i) in slides" :key="i">
         <v-sheet :color="colors[i]" height="100%">
           <div class="d-flex fill-height justify-center align-center">
-            <div class="text-h2">{{ slide }}</div>
+            <div class="text-h4">{{ slide }}</div>
           </div>
         </v-sheet>
       </v-carousel-item>
@@ -134,17 +134,18 @@
  * 滚动字幕条
  */
 const slides = [
-  "碧海数科，本地生活数字化专家",
-  "读万卷书，行万里路，做一件事",
-  "让遇见，成为彼此的幸运",
-  // "战略合作：思迅、科脉、智百威、中伦",
-  "大道至简，简洁易用才是好系统",
+  "Welcome to Jason's Games Website",
+  " Go confidently in the direction of your dreams, live your own life",
+  "Do something today that your future self will thank you for",
+  " Opportunities don’t happen, you create them",
+  " It always seems impossible until it’s done",
 ];
 const colors = [
   "indigo",
-  "deep-purple-lighten-1",
-  "blue-darken-3",
-  "indigo-darken-1",
+  "warning",
+  "pink darken-2",
+  "red lighten-1",
+  "deep-purple accent-4",
 ];
 
 /**
@@ -153,7 +154,7 @@ const colors = [
  */
 const items = [
   {
-    title: "本地生活数字化专家",
+    title: "This website is on building...",
     text: [
       "碧海数科专注社区本地生活数字化，为社区开店提供最佳数字化解决方案",
       "敬请点击下方【了解详情】按钮，认识我们的团队，了解我们的业务范围",
@@ -173,16 +174,6 @@ const items = [
       "- 美容店、美发店、美甲店、足浴店、社区按摩店、健身房、瑜伽馆等",
     ],
     img: "/home/index1.jpeg",
-  },
-  {
-    title: "简洁易用 Elegant & Friendly",
-    text: [
-      "简洁易用，是碧海数字化解决方案的不懈追求",
-      "杂乱无章的功能堆砌只会让用户无端耗费宝贵的时间和精力",
-      "数字化的目的是减轻日常经营管理工作量，提高客户满意度，而不是作茧自缚，备受糟糕的营业系统的折磨",
-    ],
-    img: "/home/index2.jpeg",
-    link: "/detail/home_detail2", // 了解详情，链接
   },
 ];
 </script>

@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
-      title: "碧海数科",
+      title: "Jason's Cloud Games",
       meta: [
         {
           name: "description",

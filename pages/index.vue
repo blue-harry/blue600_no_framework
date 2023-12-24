@@ -134,7 +134,7 @@
  * 滚动字幕条
  */
 const slides = [
-  "Welcome to Jason's Games Website",
+  "Welcome to my Games Website",
   " Go confidently in the direction of your dreams, live your own life",
   "Do something today that your future self will thank you for",
   " Opportunities don’t happen, you create them",
@@ -154,13 +154,12 @@ const colors = [
  */
 const items = [
   {
-    title: "This website is on building...",
+    title: "Flappy bird of my version",
     text: [
-      "碧海数科专注社区本地生活数字化，为社区开店提供最佳数字化解决方案",
-      "敬请点击下方【了解详情】按钮，认识我们的团队，了解我们的业务范围",
+      "Maybe it's simple, but it is the first game developed by myself. ",
+      "<v-html> <a href='https://www.blue600.com/flappybird' target='_blank'>play  FLAPPY BIRD</a></v-html>",
     ],
     img: "/home/index4.jpeg",
-    link: "/detail/home_detail1", // 了解详情，链接
   },
   {
     title: "零售｜餐饮｜美容保健",

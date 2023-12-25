@@ -5,8 +5,13 @@ FROM node:18
 WORKDIR /usr/src/app
 
 # Bundle app source
-COPY ./.output .
+# adminPkg ： 包括后端 server 和 前端构建后的bundle包
+COPY ./ .
 
+# Install app dependencies
+# RUN npm install
+# If you are building your code for production
+# RUN npm ci --omit=dev
 
-EXPOSE 3000
-CMD [ "node", "./server/index.mjs" ]
+EXPOSE 5000
+CMD [ "node", "index.js" ]

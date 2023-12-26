@@ -22,10 +22,11 @@ let pipeX = boardWidth;
 let pipeY = 0;
 
 //physics
-let velocityX = -2;
+let velocityX = 0;//-2
 let velocityY = 0;
-let gravity = 0.4;
+let gravity = 0; //0.4
 
+let start = true;
 let gameOver = false;
 let score = 0;
 
@@ -60,7 +61,6 @@ function update() {
 
   // bird
   velocityY += gravity;
-  // bird.y += velocityY;
   bird.y = Math.max(bird.y + velocityY, 0);
   context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
 
@@ -91,6 +91,13 @@ function update() {
   context.fillStyle = "orange";
   context.font = "45px sans-serif";
   context.fillText(score, 5, 45);
+
+  // start
+  if (start) {
+    context.fillStyle = "white";
+    context.font = "32px sans-serif";
+    context.fillText("press B to begin", 5, 150);
+  }
 
   // game over
   if (gameOver) {
@@ -135,14 +142,25 @@ const moveBird = (e) => {
     velocityY = -6;
   }
 
+  // start game
+  if (start && e.code == "KeyB") {
+    bird.y = boardHeight / 4;
+    pipeArray = [];
+    velocityX = -2;
+    gravity = 0.4;
+    start = false;
+  }
+
+
   // reset game
   if (gameOver && e.code == "KeyB") {
-    bird.y = birdY;
+    bird.y = boardHeight / 4;
     pipeArray = [];
     score = 0;
     velocityY = 0;
     gameOver = false;
   }
+
 };
 
 const detectCollision = (a, b) => {

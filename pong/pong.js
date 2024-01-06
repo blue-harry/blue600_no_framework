@@ -132,14 +132,14 @@ const checkCollision = () => {
     if (ballY > paddle1.y && ballY < paddle1.y + paddle1.height) {
       ballX = paddle1.x + paddle1.width + ballRadius;
       ballXDirection *= -1;
-      ballSpeed += 1;
+      ballSpeed += 0.3;
     }
   }
   if (ballX >= paddle2.x - ballRadius) {
     if (ballY > paddle2.y && ballY < paddle2.y + paddle2.height) {
       ballX = paddle2.x - ballRadius;
       ballXDirection *= -1;
-      ballSpeed += 1;
+      ballSpeed += 0.3;
     }
   }
 };

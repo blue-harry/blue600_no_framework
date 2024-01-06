@@ -7,6 +7,7 @@ app.use(
   "/home",
   express.static(fileURLToPath(new URL("home", import.meta.url)))
 );
+
 app.use(
   "/games",
   express.static(fileURLToPath(new URL("games", import.meta.url)))

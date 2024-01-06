@@ -4,6 +4,20 @@ import { fileURLToPath } from "url";
 const app = express();
 app.use("/", express.static(fileURLToPath(new URL("home", import.meta.url))));
 app.use(
+  "/home",
+  express.static(fileURLToPath(new URL("home", import.meta.url)))
+);
+app.use(
+  "/games",
+  express.static(fileURLToPath(new URL("games", import.meta.url)))
+);
+app.use(
+  "/links",
+  express.static(fileURLToPath(new URL("links", import.meta.url)))
+);
+
+//
+app.use(
   "/flappybird",
   express.static(fileURLToPath(new URL("flappybird", import.meta.url)))
 );

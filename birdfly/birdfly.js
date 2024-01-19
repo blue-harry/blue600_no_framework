@@ -22,6 +22,9 @@ window.onload = () => {
   // create image objects
   flyImg0 = new Image()
   flyImg0.src = "./fly0.jpg"
+  flyImg0.onload = () => {
+    context.drawImage(flyImg0, flyX, 50, imgWidth, imgHeight)
+  }
   flyImg1 = new Image()
   flyImg1.src = "./fly1.jpg"
   flyImg2 = new Image()

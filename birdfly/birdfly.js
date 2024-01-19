@@ -45,8 +45,8 @@ const fly = () => {
   context.clearRect(flyX, 50, imgWidth, imgHeight)
   indexFly++
 
-  if (flyX >= boardWidth - imgWidth) {
-    flyX = 0
+  if (flyX >= boardWidth) {
+    flyX = -imgWidth
   }
 
   flyX += 5

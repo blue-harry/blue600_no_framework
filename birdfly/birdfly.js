@@ -1,14 +1,25 @@
+/** variables */
 let board
 let indexFly = 0
-let flyX = 10
+let flyX = 0
+let start = false
+let intervalID
+const imgWidth = 150
+const imgHeight = 100
+const boardWidth = 1000
+const boardHeight = 400
 
+/** lifecycle method/function: load page */
 window.onload = () => {
+  // get the cavas element
   board = document.getElementById("board")
-  board.height = 500
-  board.width = 1000
+  board.height = boardHeight
+  board.width = boardWidth
 
+  // get context for drawing images
   context = board.getContext("2d")
 
+  // create image objects
   flyImg0 = new Image()
   flyImg0.src = "./fly0.jpg"
   flyImg1 = new Image()
@@ -26,38 +37,60 @@ window.onload = () => {
   flyImg7 = new Image()
   flyImg7.src = "./fly7.jpg"
 
-  setInterval(fly, 100)
+  document.addEventListener("keydown", control)
 }
 
+/** functions */
 const fly = () => {
-  context.clearRect(flyX, 50, 150, 100)
+  context.clearRect(flyX, 50, imgWidth, imgHeight)
   indexFly++
+
+  if (flyX >= boardWidth - imgWidth) {
+    flyX = 0
+  }
+
   flyX += 5
+
   switch (indexFly % 8) {
     case 0:
-      context.drawImage(flyImg0, flyX, 50, 150, 100)
+      context.drawImage(flyImg0, flyX, 50, imgWidth, imgHeight)
       break
     case 1:
-      context.drawImage(flyImg1, flyX, 50, 150, 100)
+      context.drawImage(flyImg1, flyX, 50, imgWidth, imgHeight)
       break
     case 2:
-      context.drawImage(flyImg2, flyX, 50, 150, 100)
+      context.drawImage(flyImg2, flyX, 50, imgWidth, imgHeight)
       break
     case 3:
-      context.drawImage(flyImg3, flyX, 50, 150, 100)
+      context.drawImage(flyImg3, flyX, 50, imgWidth, imgHeight)
       break
     case 4:
-      context.drawImage(flyImg4, flyX, 50, 150, 100)
+      context.drawImage(flyImg4, flyX, 50, imgWidth, imgHeight)
       break
     case 5:
-      context.drawImage(flyImg5, flyX, 50, 150, 100)
+      context.drawImage(flyImg5, flyX, 50, imgWidth, imgHeight)
       break
     case 6:
-      context.drawImage(flyImg6, flyX, 50, 150, 100)
+      context.drawImage(flyImg6, flyX, 50, imgWidth, imgHeight)
       break
     case 7:
-      context.drawImage(flyImg7, flyX, 50, 150, 100)
+      context.drawImage(flyImg7, flyX, 50, imgWidth, imgHeight)
       indexFly = 0
       break
+  }
+}
+
+// control
+const control = (e) => {
+  if (e.code == "Space") {
+    if (start) {
+      clearInterval(intervalID)
+    } else {
+      // set the auto run loop
+      intervalID = setInterval(fly, 100)
+    }
+
+    // toggle status
+    start = !start
   }
 }

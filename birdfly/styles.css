@@ -4,6 +4,6 @@ body {
 }
 
 #board {
-  /* background-color: skyblue; */
-  background-image: url("./backgroundimg.png");
+  background-color: skyblue;
+  /* background-image: url("./backgroundimg.png"); */
 }

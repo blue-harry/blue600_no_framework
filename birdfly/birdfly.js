@@ -2,7 +2,7 @@
 let board
 let indexFly = 0
 let flyX = 0
-let start = false
+let flying = false
 let intervalID
 const imgWidth = 150
 const imgHeight = 100
@@ -84,9 +84,9 @@ const fly = () => {
 }
 
 // control
-const control = (e) => {
-  if (e.code == "Space") {
-    if (start) {
+const control = (event) => {
+  if (event.code == "Space") {
+    if (flying) {
       clearInterval(intervalID)
     } else {
       // set the auto run loop
@@ -94,6 +94,6 @@ const control = (e) => {
     }
 
     // toggle status
-    start = !start
+    flying = !flying
   }
 }

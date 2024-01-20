@@ -1,4 +1,4 @@
-/** variables */
+/** part one : variables */
 let board
 let indexFly = 0
 let flyX = 0
@@ -7,9 +7,9 @@ let intervalID
 const imgWidth = 150
 const imgHeight = 100
 const boardWidth = 1000
-const boardHeight = 400
+const boardHeight = 500
 
-/** lifecycle method/function: load page */
+/** part two : lifecycle method/function: load page */
 window.onload = () => {
   // get the cavas element
   board = document.getElementById("board")
@@ -43,7 +43,7 @@ window.onload = () => {
   document.addEventListener("keydown", control)
 }
 
-/** functions */
+/** part three : functions */
 const fly = () => {
   context.clearRect(flyX, 50, imgWidth, imgHeight)
   indexFly++
@@ -54,7 +54,7 @@ const fly = () => {
 
   flyX += 5
 
-  switch (indexFly % 8) {
+  switch (indexFly) {
     case 0:
       context.drawImage(flyImg0, flyX, 50, imgWidth, imgHeight)
       break

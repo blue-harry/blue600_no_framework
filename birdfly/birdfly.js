@@ -9,6 +9,50 @@ const imgHeight = 100
 const boardWidth = 1000
 const boardHeight = 500
 
+// create image objects
+const flyImgFiles = [
+  "./fly0.jpg",
+  "./fly1.jpg",
+  "./fly2.jpg",
+  "./fly3.jpg",
+  "./fly4.jpg",
+  "./fly5.jpg",
+  "./fly6.jpg",
+  "./fly7.jpg",
+]
+const flyImges = []
+
+for (const imgFile of flyImgFiles) {
+  let imgObj
+  imgObj = new Image()
+  imgObj.src = imgFile
+  flyImges.push(imgObj)
+}
+
+// console.log(flyImges)
+
+/** 
+flyImg0 = new Image()
+flyImg0.src = "./fly0.jpg"
+
+//  context.drawImage(flyImg0, flyX, 50, imgWidth, imgHeight)
+
+flyImg1 = new Image()
+flyImg1.src = "./fly1.jpg"
+flyImg2 = new Image()
+flyImg2.src = "./fly2.jpg"
+flyImg3 = new Image()
+flyImg3.src = "./fly3.jpg"
+flyImg4 = new Image()
+flyImg4.src = "./fly4.jpg"
+flyImg5 = new Image()
+flyImg5.src = "./fly5.jpg"
+flyImg6 = new Image()
+flyImg6.src = "./fly6.jpg"
+flyImg7 = new Image()
+flyImg7.src = "./fly7.jpg"
+*/
+
 /** part two : lifecycle method/function: load page */
 window.onload = () => {
   // get the cavas element
@@ -18,27 +62,7 @@ window.onload = () => {
 
   // get context for drawing images
   context = board.getContext("2d")
-
-  // create image objects
-  flyImg0 = new Image()
-  flyImg0.src = "./fly0.jpg"
-  flyImg0.onload = () => {
-    context.drawImage(flyImg0, flyX, 50, imgWidth, imgHeight)
-  }
-  flyImg1 = new Image()
-  flyImg1.src = "./fly1.jpg"
-  flyImg2 = new Image()
-  flyImg2.src = "./fly2.jpg"
-  flyImg3 = new Image()
-  flyImg3.src = "./fly3.jpg"
-  flyImg4 = new Image()
-  flyImg4.src = "./fly4.jpg"
-  flyImg5 = new Image()
-  flyImg5.src = "./fly5.jpg"
-  flyImg6 = new Image()
-  flyImg6.src = "./fly6.jpg"
-  flyImg7 = new Image()
-  flyImg7.src = "./fly7.jpg"
+  context.drawImage(flyImges[0], flyX, 50, imgWidth, imgHeight)
 
   document.addEventListener("keydown", control)
 }
@@ -54,6 +78,10 @@ const fly = () => {
 
   flyX += 20
 
+  if (indexFly >= 7) indexFly = 0
+  context.drawImage(flyImges[indexFly], flyX, 50, imgWidth, imgHeight)
+
+  /** 
   switch (indexFly) {
     case 0:
       context.drawImage(flyImg0, flyX, 50, imgWidth, imgHeight)
@@ -81,6 +109,7 @@ const fly = () => {
       indexFly = 0
       break
   }
+  */
 }
 
 // control

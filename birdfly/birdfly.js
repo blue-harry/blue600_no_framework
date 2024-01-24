@@ -52,7 +52,7 @@ const fly = () => {
     flyX = -imgWidth
   }
 
-  flyX += 5
+  flyX += 20
 
   switch (indexFly) {
     case 0:
